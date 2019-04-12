@@ -12,8 +12,18 @@ const games = [
     {id: 5, title: 'Mario Kart', genre: 'Racing', releaseYear: 1992},
 ]
 
+const emptyGames = []
+
 server.get('/games', async (req, res) => {
     if (games.length !== 0) {
+        res.status(200).json(games);
+    } else {
+        res.status(204).json([]);
+    }
+});
+
+server.get('/emptyGames', async (req, res) => {
+    if (emptyGames.length !== 0) {
         res.status(200).json(games);
     } else {
         res.status(204).json([]);

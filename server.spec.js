@@ -11,6 +11,13 @@ describe('server.js', () => {
                     expect(response.status).toBe(200);
                 });
         });
+        it('should return a status code of 204', () => {
+            return request(server)
+                .get('/emptyGames')
+                .then(response => {
+                    expect(response.status).toBe(204);
+                });
+        });
         it("should return a response body of listed games", async () => {
             const games = [
                 {id: 1, title: 'Donkey Kong Country', genre: 'Platform', releaseYear: 1994},

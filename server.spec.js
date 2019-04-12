@@ -43,7 +43,7 @@ describe('server.js', () => {
         it("should return a status code of 422", async () => {
           const response = await request(server)
             .post("/games")
-            .send({ id: 7, title: "" }); // fails because there is no title/genre provoided
+            .send({ id: 7, title: "" }); // fails because there is no title provided
           expect(response.status).toEqual(422);
         });
         it("should return posted data in the response body", async () => {
